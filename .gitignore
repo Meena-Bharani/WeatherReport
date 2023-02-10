@@ -1,0 +1,61 @@
+#django
+*.log
+
+# bin folder
+bin/
+.sh
+share/
+pyvenv.cfg
+
+.envrc
+
+####### Start - commented purposefully to let you test in IDE ######
+#env
+#.env
+
+#virtualenv
+# venv/
+# ENV/
+####### end - commented purposefully to let you test in IDE ######
+
+# Emacs tmp files
+*~
+\#*
+
+# VS Code Files
+.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+
+# Distribution / packaging
+.Python
+env/
+build/
+staticfiles/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+node_modules/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.js.map
+*.css.map
+main.styles.css
+
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+Pipfile
+Pipfile.lock
+
