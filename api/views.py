@@ -125,23 +125,25 @@ class ImportWeatherView(generics.CreateAPIView):
             return Response({'message':'Something went wrong.'+str(e)},status=status.HTTP_400_BAD_REQUEST)
 
 # data Analysis part
-@api_view(['GET','POST'])
+@api_view(['GET','POST','DELETE'])
 def WeatherStatisticsApiView(request):
     try:
+        statistics = WeatherStatistics.objects.all()
         if request.method == 'GET':
-            statistics = WeatherStatistics.objects.all()
             paginator = PageNumberPagination()
             context = paginator.paginate_queryset(statistics, request)
             serializer = WeatherStatisticsSerializer(context, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         elif request.method == 'POST':
             WeatherStatisticsInsertApiView(request)
-            statistics = WeatherStatistics.objects.all()
             paginator = PageNumberPagination()
             context = paginator.paginate_queryset(statistics, request)
             serializer = WeatherStatisticsSerializer(context, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
             return Response({'message':'Inserted Statistical weather data.'}, status.HTTP_201_CREATED)
+        elif request.method == 'DELETE':
+            statistics.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
     except Exception as e:
         return Response({'message':'Something went wrong'},status=status.HTTP_400_BAD_REQUEST)
 

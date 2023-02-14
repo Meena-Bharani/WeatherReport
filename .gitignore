@@ -10,12 +10,14 @@ pyvenv.cfg
 .envrc
 
 ####### Start - commented purposefully to let you test in IDE ######
-#env
-#.env
+env
+.env
+
+.venv
 
 #virtualenv
-# venv/
-# ENV/
+venv/
+ENV/
 ####### end - commented purposefully to let you test in IDE ######
 
 # Emacs tmp files
